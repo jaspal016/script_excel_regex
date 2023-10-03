@@ -1,0 +1,23 @@
+Function Regex(text As Range, ByVal pattern As String, Optional ByVal replaceWith As String, _
+        Optional ignore_case As Boolean = True, Optional global_search As Boolean = False, _
+        Optional multi_line As Boolean = False)
+    Dim re   As RegExp
+    Set re = New RegExp
+    
+    With re
+        .IgnoreCase = ignore_case  'ignoring cases while regex engine performs the search.
+        .pattern = pattern  'declaring regex pattern.
+        .Global = global_search     'restricting regex to find only first match.
+        .MultiLine = multi_line
+        
+        If .test(text.Value) Then         'Testing if the pattern matches or not
+            If (Len(replaceWith) = 0) Then
+                Regex = .Execute(text.Value)(0)
+            Else
+                Regex = .Replace(text.Value, replaceWith)
+            End If
+        Else
+            Regex = ""
+        End If
+    End With
+End Function

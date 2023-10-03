@@ -20,4 +20,5 @@ Replace ex. Type "hello world" in cell A1, then go to B1 and simply type =Regex(
    to get the result "hello user" using regex.
 
 Source: https://stackoverflow.com/a/43128681
+
 Source: https://www.oreilly.com/library/view/vbscript-in-a/1565927206/re155.html
